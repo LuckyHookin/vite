@@ -4,7 +4,8 @@ import { ref } from 'vue'
 defineProps({
   msg: String
 })
-
+import {Trigger} from '@arco-design/web-vue';
+// import '@arco-design/web-vue/es/trigger/style/css';
 const count = ref(0)
 </script>
 
@@ -28,13 +29,26 @@ const count = ref(0)
 
   <button type="button" @click="count++">count is: {{ count }}</button>
   <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
+<Trigger :render-to-body="false" trigger="click" show-arrow class="demo-basic" position="top">
+      <span>Hover Me</span>
+      <template #content>
+        123
+        <input type="button" value="12">
+      </template>
+    </Trigger> to test hot module replacement.
   </p>
+  
 </template>
 
-<style scoped>
+<style>
 a {
   color: #42b983;
+}
+.demo-basic {
+  padding: 10px;
+  width: 200px;
+  background-color: var(--color-bg-popup);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
 }
 </style>
